@@ -3,10 +3,13 @@
     <type fullname="BubbleBase" preserve="all" />
     <type fullname="CharacterBase" preserve="all" />
     <type fullname="CharacterInteraction" preserve="all" />
+    <type fullname="CharacterMovement" preserve="all" />
     <type fullname="CharacterView" preserve="all" />
     <type fullname="Coffee.UIExtensions.ShinyEffectForUGUI" preserve="all" />
     <type fullname="DG.Tweening.DOTweenAnimation" preserve="all" />
+    <type fullname="DropdownController" preserve="all" />
     <type fullname="FX_GetPoring_01" preserve="all" />
+    <type fullname="GetPoringString" preserve="all" />
     <type fullname="HUD_Close" preserve="all" />
     <type fullname="HUD_Currency" preserve="all" />
     <type fullname="HUD_Menu" preserve="all" />
@@ -22,14 +25,19 @@
     <type fullname="UIAlbumSlot" preserve="all" />
     <type fullname="UIButtonGroup" preserve="all" />
     <type fullname="UICareItem" preserve="all" />
+    <type fullname="UICollection" preserve="all" />
     <type fullname="UICommonToggle" preserve="all" />
+    <type fullname="UIImageItem" preserve="all" />
+    <type fullname="UIImageItemGroup" preserve="all" />
     <type fullname="UIInterior" preserve="all" />
     <type fullname="UIIntro" preserve="all" />
     <type fullname="UIItemDragger" preserve="all" />
     <type fullname="UIItemSlot" preserve="all" />
+    <type fullname="UIItemTitle" preserve="all" />
     <type fullname="UILobby" preserve="all" />
     <type fullname="UIOutside" preserve="all" />
     <type fullname="UIOutsideAffinity" preserve="all" />
+    <type fullname="UIPopupCharacterViewer" preserve="all" />
     <type fullname="UIPopupCheat" preserve="all" />
     <type fullname="UIPopupFindNPC" preserve="all" />
     <type fullname="UIPopupFindNPC_Slot" preserve="all" />
@@ -38,7 +46,11 @@
     <type fullname="UIPopupOutsideGift" preserve="all" />
     <type fullname="UIPunch" preserve="all" />
     <type fullname="UISubPopupBase" preserve="all" />
+    <type fullname="UISubPopupCollectionInfo" preserve="all" />
+    <type fullname="UISubPopupPossibilityEvolution" preserve="all" />
     <type fullname="UIToastPopup" preserve="all" />
+    <type fullname="AnimButtonMapping" preserve="nothing" serialized="true" />
+    <type fullname="DropdownItemData" preserve="nothing" serialized="true" />
     <type fullname="TopBarController/ItemPrefabMapping" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -58,10 +70,15 @@
   <assembly fullname="DOTweenPro, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="DG.Tweening.DOTweenVisualManager" preserve="all" />
   </assembly>
+  <assembly fullname="Opsive.BehaviorDesigner.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Opsive.BehaviorDesigner.Runtime.BehaviorTree" preserve="all" />
+    <type fullname="Opsive.BehaviorDesigner.Runtime.Subtree" preserve="all" />
+    <type fullname="Opsive.BehaviorDesigner.Runtime.BehaviorTreeData" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
   </assembly>
-  <assembly fullname="Unity.InputSystem, Version=1.19.0.0, Culture=neutral, PublicKeyToken=null">
+  <assembly fullname="Unity.InputSystem, Version=1.18.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
     <type fullname="UnityEngine.InputSystem.InputActionReference" preserve="all" />
     <type fullname="UnityEngine.InputSystem.UI.InputSystemUIInputModule" preserve="all" />
@@ -85,37 +102,34 @@
   </assembly>
   <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
+    <type fullname="TMPro.TMP_Dropdown" preserve="all" />
     <type fullname="TMPro.TMP_FontAsset" preserve="all" />
     <type fullname="TMPro.TMP_InputField" preserve="all" />
     <type fullname="TMPro.TMP_SpriteAnimator" preserve="all" />
+    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
     <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
     <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
     <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.LigatureSubstitutionRecord" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Dropdown/DropdownEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Dropdown/OptionDataList" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
-  </assembly>
-  <assembly fullname="Unity.Timeline, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="UnityEngine.Timeline.AnimationPlayableAsset" preserve="all" />
-    <type fullname="UnityEngine.Timeline.AnimationTrack" preserve="all" />
-    <type fullname="UnityEngine.Timeline.ControlPlayableAsset" preserve="all" />
-    <type fullname="UnityEngine.Timeline.ControlTrack" preserve="all" />
-    <type fullname="UnityEngine.Timeline.TimelineAsset" preserve="all" />
-    <type fullname="UnityEngine.Timeline.MarkerList" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Timeline.TimelineAsset/EditorSettings" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Timeline.TimelineClip" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.GlyphAnchorPoint" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.LigatureSubstitutionRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkPositionAdjustment" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkToBaseAdjustmentRecord" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Animation" preserve="all" />
     <type fullname="UnityEngine.AnimationClip" preserve="all" />
     <type fullname="UnityEngine.Animator" preserve="all" />
+    <type fullname="UnityEngine.AnimatorOverrideController" preserve="all" />
     <type fullname="UnityEngine.RuntimeAnimatorController" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
@@ -142,10 +156,6 @@
     <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RenderingLayerMask" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.ExposedReference`1" preserve="nothing" serialized="true" />
-  </assembly>
-  <assembly fullname="UnityEngine.DirectorModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
-    <type fullname="UnityEngine.Playables.PlayableDirector" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.ParticleSystemModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.ParticleSystem" preserve="all" />
@@ -162,15 +172,19 @@
     <type fullname="UnityEngine.EventSystems.Physics2DRaycaster" preserve="all" />
     <type fullname="UnityEngine.UI.Button" preserve="all" />
     <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
     <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
     <type fullname="UnityEngine.UI.GridLayoutGroup" preserve="all" />
     <type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all" />
     <type fullname="UnityEngine.UI.Image" preserve="all" />
     <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
     <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.RawImage" preserve="all" />
     <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
     <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
+    <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
     <type fullname="UnityEngine.UI.Slider" preserve="all" />
+    <type fullname="UnityEngine.UI.Toggle" preserve="all" />
     <type fullname="UnityEngine.UI.ToggleGroup" preserve="all" />
     <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
     <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
@@ -188,6 +202,9 @@
     <type fullname="UnityEngine.Canvas" preserve="all" />
     <type fullname="UnityEngine.CanvasGroup" preserve="all" />
     <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="Opsive.Shared.Utility">
+    <type fullname="Opsive.Shared.Utility.Serialization" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.TextCoreFontEngineModule">
     <type fullname="UnityEngine.TextCore.FaceInfo" preserve="nothing" serialized="true" />
