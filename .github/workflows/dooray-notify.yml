@@ -24,7 +24,7 @@ jobs:
                 {
                   \"title\": \"✅ GitHub Pages 배포 완료\",
                   \"titleLink\": \"$PAGES_URL\",
-                  \"text\": \"새로운 코드가 성공적으로 Push 되었습니다!\n\n🎮 Publish Site:\n$PAGES_URL\",
+                  \"text\": \"새로운 웹빌드가 성공적으로 Push 되었습니다!\n\n🎮 Publish Site:\n$PAGES_URL\",
                   \"color\": \"green\"
                 }
               ]
