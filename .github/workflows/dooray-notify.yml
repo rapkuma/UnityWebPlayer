@@ -1,5 +1,4 @@
 name: Send Dooray Notification
-# 언제 이 알림을 실행할지 결정 (예: master 브랜치에 코드가 푸시되었을 때)
 on:
   push:
     branches:
@@ -10,16 +9,23 @@ jobs:
     steps:
       - name: Send Dooray Webhook
         run: |
+          # 저장소 이름과 소유자명을 자동으로 분리해서 GitHub Pages URL 완성
+          REPO_NAME=${GITHUB_REPOSITORY#*/}
+          OWNER=${GITHUB_REPOSITORY_OWNER}
+          PAGES_URL="https://${OWNER}.github.io/${REPO_NAME}"
+          
+          # Dooray로 JSON 데이터 전송
           curl -s -X POST "${{ secrets.DOORAY_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
-            -d '{
-              "botName": "GitHub Actions",
-              "text": "🚀 GitHub Pages에 새로운 배포가 완료되었습니다!",
-              "attachments": [
+            -d "{
+              \"botName\": \"GitHub Actions\",
+              \"text\": \"\",
+              \"attachments\": [
                 {
-                  "title": "저장소: ${{ github.repository }}",
-                  "text": "새로운 버전이 GitHub에 성공적으로 Push 되었습니다.\n커밋 해시: ${{ github.sha }}",
-                  "color": "green"
+                  \"title\": \"✅ GitHub Pages 배포 완료\",
+                  \"titleLink\": \"$PAGES_URL\",
+                  \"text\": \"새로운 코드가 성공적으로 Push 되었습니다!\n\n🎮 Publish Site:\n$PAGES_URL\",
+                  \"color\": \"green\"
                 }
               ]
-            }'
+            }"
