@@ -1,26 +1,25 @@
-- name: Send Dooray Notification
-        if: always() # 성공하든 실패하든 항상 실행하려면 추가 (원하는 조건에 맞춰 변경)
+name: Send Dooray Notification
+# 언제 이 알림을 실행할지 결정 (예: master 브랜치에 코드가 푸시되었을 때)
+on:
+  push:
+    branches:
+      - master
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Dooray Webhook
         run: |
-          # 빌드 상태에 따라 색상과 메시지 분기 (옵션)
-          if [ "${{ job.status }}" = "success" ]; then
-            COLOR="green"
-            TITLE="✅ GitHub Actions 배포 성공"
-          else
-            COLOR="red"
-            TITLE="❌ GitHub Actions 배포 실패"
-          fi
-          # Dooray JSON 페이로드 구성 및 전송
           curl -s -X POST "${{ secrets.DOORAY_WEBHOOK_URL }}" \
             -H "Content-Type: application/json" \
-            -d "{
-              \"botName\": \"GitHub Bot\",
-              \"botIconImage\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\",
-              \"text\": \"\",
-              \"attachments\": [
+            -d '{
+              "botName": "GitHub Actions",
+              "text": "🚀 GitHub Pages에 새로운 배포가 완료되었습니다!",
+              "attachments": [
                 {
-                  \"title\": \"$TITLE\",
-                  \"text\": \"저장소: ${{ github.repository }}\n커밋: ${{ github.sha }}\n실행자: ${{ github.actor }}\",
-                  \"color\": \"$COLOR\"
+                  "title": "저장소: ${{ github.repository }}",
+                  "text": "새로운 버전이 GitHub에 성공적으로 Push 되었습니다.\n커밋 해시: ${{ github.sha }}",
+                  "color": "green"
                 }
               ]
-            }"
+            }'
