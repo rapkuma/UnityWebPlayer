@@ -1,45 +1,191 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-us">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity Web Player | GetPoring Web</title>
-  </head>
-  <body style="text-align: center; padding: 0; border: 0; margin: 0;">
-    <canvas id="unity-canvas" width=600 height=960 tabindex="-1" style="width: 600px; height: 960px; background: #231F20"></canvas>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Unity Web Player | MainGame</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+
+    <style>
+        /* 1. 배경 및 기본 레이아웃 */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #0a1628;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('TemplateData/bg.jpg');
+            background-size: cover;
+            background-position: center center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 2. 컨테이너: 화면 전체를 차지하되 내부 요소를 중앙 정렬 */
+        #unity-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 3. 캔버스: 반응형 및 풀스크린 비율 유지 핵심 */
+        #unity-canvas {
+            /* 일반 상태: 부모 안에서 9:16 비율 유지 */
+            width: 100% !important;
+            height: 100% !important;
+            max-width: min(calc(100vh * 9 / 16), 720px);
+            /* 높이 비율을 따라가되, 최대 720px 초과 금지 */
+            max-height: 1280px;
+            /* 가로 720px일 때의 16:9 세로 높이 */
+            /* 비율 유지 설정 */
+            aspect-ratio: 9 / 16;
+            object-fit: contain;
+            background: #000;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+        }
+
+        /* 브라우저 풀스크린 시 스타일 강제 고정 */
+        #unity-canvas:fullscreen {
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: contain;
+            /* 검은 여백(Letterbox) 생성 */
+        }
+
+        /* Safari 대응 */
+        #unity-canvas:-webkit-full-screen {
+            width: 100vw !important;
+            height: 100vh !important;
+            object-fit: contain;
+        }
+
+        /* 4. UI 요소 (로딩바, 푸터) */
+        #unity-loading-bar {
+            position: absolute;
+            z-index: 10;
+            display: none;
+        }
+
+        #unity-progress-bar-empty {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        #unity-progress-bar-full {
+            height: 100%;
+            background: linear-gradient(90deg, #00dbde, #fc00ff);
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        #unity-footer {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        #unity-fullscreen-button {
+            pointer-events: auto;
+            cursor: pointer;
+            filter: invert(1) drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+            transition: transform 0.2s;
+        }
+
+        #unity-fullscreen-button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="unity-container">
+        <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+        <div id="unity-loading-bar">
+            <div id="unity-progress-bar-empty">
+                <div id="unity-progress-bar-full"></div>
+            </div>
+        </div>
+
+        <!--<div id="unity-footer">
+            <div id="unity-fullscreen-button">
+                <img src="TemplateData/fullscreen-button.png" width="38" height="38" />
+            </div>
+        </div>-->
+    </div>
+
     <script src="Build/WebGL.loader.js"></script>
     <script>
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
+        var buildUrl = "Build";
+        var config = {
+            arguments: [],
+            dataUrl: buildUrl + "/WebGL.data.unityweb",
+            frameworkUrl: buildUrl + "/WebGL.framework.js.unityweb",
+            codeUrl: buildUrl + "/WebGL.wasm.unityweb",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "Gravity",
+            productName: "GetPoring Web",
+            productVersion: "1_e50cd5cd",
+            // errorHandler: function(err, url, line) {
+            //    alert("error " + err + " occurred at line " + line);
+            //    // Return 'true' if you handled this error and don't want Unity
+            //    // to process it further, 'false' otherwise.
+            //    return true;
+            // },
+        };
 
         var canvas = document.querySelector("#unity-canvas");
-        canvas.style.width = "100%";
-        canvas.style.height = "100%";
-        canvas.style.position = "fixed";
+        var loadingBar = document.querySelector("#unity-loading-bar");
+        var progressBarFull = document.querySelector("#unity-progress-bar-full");
+        var fullscreenButton = document.querySelector("#unity-fullscreen-button");
 
-        document.body.style.textAlign = "left";
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            config.devicePixelRatio = 1; // 모바일 성능 최적화
+        }
 
-      }
+        loadingBar.style.display = "block";
 
-      createUnityInstance(document.querySelector("#unity-canvas"), {
-        arguments: [],
-        dataUrl: "Build/WebGL.data.unityweb",
-        frameworkUrl: "Build/WebGL.framework.js.unityweb",
-        codeUrl: "Build/WebGL.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "Gravity",
-        productName: "GetPoring Web",
-        productVersion: "1_f8e4f9cd",
-        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
-        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-      }).then((unityInstance) => {
-      }).catch((message) => {
-        alert(message);
-      });
+        createUnityInstance(canvas, config, (progress) => {
+            progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+            loadingBar.style.display = "none";
+
+            //// 유니티 내장 함수가 아닌 브라우저 API 호출
+            //fullscreenButton.onclick = () => {
+            //    openFullscreen(canvas);
+            //};
+        }).catch((message) => {
+            alert(message);
+        });
+
+        // 브라우저별 풀스크린 호환성 함수
+        function openFullscreen(elem) {
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }
     </script>
-  </body>
+</body>
+
 </html>
