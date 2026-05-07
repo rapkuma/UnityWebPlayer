@@ -1,6 +1,7 @@
-{ 
-  "buildNumber": "63", 
-  "version": "1", 
-  "buildTime": "2026-05-06 16:51:39.21", 
-  "target": "WebGL" 
-} 
+﻿{
+    "buildNumber":  "76",
+    "gitRevision":  "10169d",
+    "version":  "0.1.0",
+    "target":  "WebGL",
+    "buildTime":  "2026-05-07 15:31:56"
+}
