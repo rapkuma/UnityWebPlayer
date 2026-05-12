@@ -1,7 +1,7 @@
 ﻿{
-    "buildNumber":  "81",
-    "gitRevision":  "10c754",
+    "buildNumber":  "82",
+    "gitRevision":  "69b443",
     "version":  "0.1.0",
     "target":  "WebGL",
-    "buildTime":  "2026-05-08 16:22:16"
+    "buildTime":  "2026-05-12 18:11:10"
 }
