@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-us">
 
 <head>
@@ -168,10 +168,12 @@
             config.devicePixelRatio = window.devicePixelRatio || 1;
         }
         loadingBar.style.display = "block";
+        var myUnityInstance = null;
 
         createUnityInstance(canvas, config, (progress) => {
             progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+            myUnityInstance = unityInstance;
             loadingBar.style.display = "none";
 
             //// 유니티 내장 함수가 아닌 브라우저 API 호출
@@ -192,6 +194,24 @@
                 elem.msRequestFullscreen();
             }
         }
+
+        // 부모 창(포털 등)으로부터 날아오는 안전한 postMessage 리스너 추가
+        window.addEventListener("message", function(event) {
+            // [보안 가이드] 신뢰할 수 있는 특정 도메인만 승인하려면 아래 주석을 풀고 수정하세요.
+            // if (event.origin !== "https://my-trusted-portal.com") return;
+
+            if (event.data && (event.data.type === "SET_TOKEN"|| event.data.type === "SET_CODE")) 
+            {
+                var receivedToken = event.data.value;
+                if (myUnityInstance) {
+                    // 유니티가 이미 켜진 경우 런타임에 즉시 토큰을 주입합니다.
+                    myUnityInstance.SendMessage("WebSessionManager", "SaveSessionToken", receivedToken);
+                } else {
+                    // 유니티 로딩 중인 경우 sessionStorage에 보관하면 Awake에서 읽어갑니다.
+                    sessionStorage.setItem("code", receivedToken);
+                }
+            }
+        });
     </script>
 </body>
 

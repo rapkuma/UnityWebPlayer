@@ -1,7 +1,9 @@
 ﻿{
-    "buildNumber":  "83",
-    "gitRevision":  "b7f446",
     "version":  "0.1.0",
+    "buildTime":  "2026-06-11 14:30:27",
+    "serviceType":  "STAGE",
+    "gitRevision":  "b7aca1",
+    "compression":  "Gzip",
     "target":  "WebGL",
-    "buildTime":  "2026-05-15 17:18:16"
+    "buildNumber":  "16"
 }
