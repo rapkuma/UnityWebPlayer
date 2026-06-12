@@ -129,6 +129,7 @@
     <type fullname="MailItemIcon" preserve="nothing" serialized="true" />
     <type fullname="NPCStruct" preserve="nothing" serialized="true" />
     <type fullname="TopBarController/ItemPrefabMapping" preserve="nothing" serialized="true" />
+    <type fullname="UIButtonStateConfig" preserve="nothing" serialized="true" />
     <type fullname="UITimelinePlayerByType/TimelineBinding" preserve="nothing" serialized="true" />
     <type fullname="CareResultSprite" preserve="nothing" serialized="true" />
   </assembly>
