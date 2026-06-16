@@ -106,6 +106,8 @@
     <type fullname="UIShopPromotionBanner" preserve="all" />
     <type fullname="UIShopTitle" preserve="all" />
     <type fullname="UIStyleCheatRow" preserve="all" />
+    <type fullname="UISubpopup_CurrencyInfo" preserve="all" />
+    <type fullname="UISubpopup_CurrencyInfo_Item" preserve="all" />
     <type fullname="UISubPopup_PoringExpIncrease" preserve="all" />
     <type fullname="UISubPopup_Shelter" preserve="all" />
     <type fullname="UISubPopup_ShelterExpansion" preserve="all" />
@@ -126,6 +128,7 @@
     <type fullname="UITooltip" preserve="all" />
     <type fullname="UITutorialDialog" preserve="all" />
     <type fullname="UITutorialFocus" preserve="all" />
+    <type fullname="UITutorialGeneral" preserve="all" />
     <type fullname="UITutorialNpc" preserve="all" />
     <type fullname="UITutorialRaycastFilter" preserve="all" />
     <type fullname="UITutorialYesOrNo" preserve="all" />
