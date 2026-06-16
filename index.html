@@ -140,6 +140,10 @@
 
     <script src="Build/WebGL.loader.js"></script>
     <script>
+	var pendingCode = new URLSearchParams(location.search).get('code');
+	history.replaceState(null, '', location.pathname);
+    	sessionStorage.setItem("code", pendingCode);
+
         var buildUrl = "Build";
         var config = {
             arguments: [],

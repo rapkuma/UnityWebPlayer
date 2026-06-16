@@ -38,6 +38,8 @@
     <type fullname="Plaza.PlazaTestSceneController" preserve="all" />
     <type fullname="Plaza.PlazaUI" preserve="all" />
     <type fullname="Plaza.PlazaWorld" preserve="all" />
+    <type fullname="Plaza.UIPlazaChatItemView" preserve="all" />
+    <type fullname="Plaza.UIPopupPlazaContextMenu" preserve="all" />
     <type fullname="PlazaScene" preserve="all" />
     <type fullname="RagnaorkSystem.RODataBinaryAsset" preserve="all" />
     <type fullname="RagnaorkSystem.SprRenderer" preserve="all" />
@@ -45,7 +47,9 @@
     <type fullname="SceneTransitionAnimator" preserve="all" />
     <type fullname="SpriteBiteController" preserve="all" />
     <type fullname="TopBarController" preserve="all" />
+    <type fullname="TutorialSystem.UIAddToTutorialTarget" preserve="all" />
     <type fullname="UIAlbumSlot" preserve="all" />
+    <type fullname="UIBuffIcon" preserve="all" />
     <type fullname="UIButtonGroup" preserve="all" />
     <type fullname="UICareItem" preserve="all" />
     <type fullname="UICollection" preserve="all" />
@@ -89,6 +93,7 @@
     <type fullname="UIPopupSetting" preserve="all" />
     <type fullname="UIPopupSettingLanguage" preserve="all" />
     <type fullname="UIPopupSleep" preserve="all" />
+    <type fullname="UIPopupUserBlock" preserve="all" />
     <type fullname="UIPunch" preserve="all" />
     <type fullname="UIRewardEffectTarget" preserve="all" />
     <type fullname="UIRewardItemSlot" preserve="all" />
@@ -106,11 +111,13 @@
     <type fullname="UISubPopup_ShelterExpansion" preserve="all" />
     <type fullname="UISubPopupBase" preserve="all" />
     <type fullname="UISubPopupCollectionInfo" preserve="all" />
+    <type fullname="UISubPopupGoToValhalla" preserve="all" />
     <type fullname="UISubPopupMailBoxReward" preserve="all" />
     <type fullname="UISubPopupNameChange" preserve="all" />
     <type fullname="UISubPopupSettingAlarm" preserve="all" />
     <type fullname="UISubPopupSettingCoupon" preserve="all" />
     <type fullname="UISubPopupSettingCustomService" preserve="all" />
+    <type fullname="UISubPopupSettingExport" preserve="all" />
     <type fullname="UISubPopupSettingLanguage" preserve="all" />
     <type fullname="UISystemPoopArrow" preserve="all" />
     <type fullname="UITimeComponent" preserve="all" />
@@ -175,6 +182,7 @@
     <type fullname="HutongGames.PlayMaker.FsmTransition" preserve="nothing" serialized="true" />
     <type fullname="HutongGames.PlayMaker.FsmVariables" preserve="nothing" serialized="true" />
     <type fullname="HutongGames.PlayMaker.UiEvents" preserve="nothing" serialized="true" />
+    <type fullname="HutongGames.PlayMaker.FsmEnum" preserve="nothing" serialized="true" />
     <type fullname="HutongGames.PlayMaker.FsmVector2" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
@@ -245,20 +253,20 @@
     <type fullname="TMPro.TMP_InputField" preserve="all" />
     <type fullname="TMPro.TMP_SpriteAnimator" preserve="all" />
     <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
-    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/DropdownEvent" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/OptionData" preserve="nothing" serialized="true" />
     <type fullname="TMPro.TMP_Dropdown/OptionDataList" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
     <type fullname="TMPro.GlyphAnchorPoint" preserve="nothing" serialized="true" />
     <type fullname="TMPro.LigatureSubstitutionRecord" preserve="nothing" serialized="true" />
     <type fullname="TMPro.MarkPositionAdjustment" preserve="nothing" serialized="true" />
@@ -316,8 +324,8 @@
     <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RenderingLayerMask" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.ExposedReference`1" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.ExposedReference`1" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="UnityEngine.DirectorModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Playables.PlayableDirector" preserve="all" />
