@@ -1,9 +1,9 @@
 ﻿{
     "version":  "0.1.0",
-    "buildTime":  "2026-06-16 14:46:13",
-    "serviceType":  "DEV",
-    "gitRevision":  "42f8e8",
-    "compression":  "Gzip",
+    "buildTime":  "2026-06-16 15:45:27",
+    "serviceType":  "STAGE",
+    "gitRevision":  "c78ace",
+    "compression":  "Brotli",
     "target":  "WebGL",
-    "buildNumber":  "53"
+    "buildNumber":  "54"
 }
