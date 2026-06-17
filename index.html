@@ -138,14 +138,14 @@
         </div>-->
     </div>
 
-    <script src="Build/WebGL.loader.js?v=0.1.1"></script>
+    <script src="Build/WebGL.loader.js?v=0.1.0"></script>
     <script>
 	var pendingCode = new URLSearchParams(location.search).get('code');
 	history.replaceState(null, '', location.pathname);
     	sessionStorage.setItem("code", pendingCode);
 
         var buildUrl = "Build";
-        var buildVersion = "0.1.1";
+        var buildVersion = "0.1.0";
         var config = {
             arguments: [],
             dataUrl: buildUrl + "/WebGL.data.unityweb?v=" + buildVersion,
@@ -154,7 +154,7 @@
             streamingAssetsUrl: "StreamingAssets",
             companyName: "Gravity",
             productName: "GetPoring Web",
-            productVersion: "0.1.1",
+            productVersion: "0.1.0",
             // errorHandler: function(err, url, line) {
             //    alert("error " + err + " occurred at line " + line);
             //    // Return 'true' if you handled this error and don't want Unity
